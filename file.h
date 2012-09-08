@@ -1,5 +1,5 @@
-#ifndef _FILE_H
-#define _FILE_H
+#ifndef _PM_FILE_H
+#define _PM_FILE_H
 
 #define F_READ (1<<0)
 
