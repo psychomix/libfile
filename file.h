@@ -11,7 +11,7 @@ typedef struct {
   ulong size;
 } file_t;
 
-extern int file_open  (file_t **F, int mode, char *name);
-extern int file_close (file_t **F);
+extern int file_open(file_t ** F, int mode, char *name);
+extern int file_close(file_t ** F);
 
 #endif

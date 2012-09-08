@@ -2,13 +2,13 @@
 
 #include "file.h"
 
-int main () {
+int main() {
   file_t *F;
 
-  if (!file_open (&F, F_READ, "test.c")) {
-    printf ("filename : '%s'\n", F->name);
-    printf ("filesize : %ld\n", F->size);
-    file_close (&F);
+  if (!file_open(&F, F_READ, "test.c")) {
+    printf("filename : '%s'\n", F->name);
+    printf("filesize : %ld\n", F->size);
+    file_close(&F);
   }
 
   return 0;

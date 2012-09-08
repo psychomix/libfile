@@ -14,27 +14,31 @@
    -3 : unable to open file
    -4 : unable to allocate memory for buffer
  */
-int file_open (file_t **F, int mode, char *name) {
+int file_open(file_t ** F, int mode, char *name) {
   int r = 0;
   FILE *in;
 
-  *F = (file_t *)malloc(sizeof(file_t));
+  *F = (file_t *) malloc(sizeof(file_t));
   if (*F) {
     if (mode & F_READ) {
-      (*F)->name = strdup (name);
-      in = fopen (name, "rb");
+      (*F)->name = strdup(name);
+      in = fopen(name, "rb");
       if (in) {
-        fseek (in, 0, SEEK_END);
-        (*F)->size = ftell (in);
-        rewind (in);
-        (*F)->buffer = (uchar *)malloc((*F)->size);
-        if ((*F)->buffer) {
-          fread ((*F)->buffer, (*F)->size, 1, in);
-        } else r = -4;
-        fclose (in);
-      } else r = -3;
-    } else r = -2;
-  } else r = -1;
+	fseek(in, 0, SEEK_END);
+	(*F)->size = ftell(in);
+	rewind(in);
+	(*F)->buffer = (uchar *) malloc((*F)->size);
+	if ((*F)->buffer) {
+	  fread((*F)->buffer, (*F)->size, 1, in);
+	} else
+	  r = -4;
+	fclose(in);
+      } else
+	r = -3;
+    } else
+      r = -2;
+  } else
+    r = -1;
 
   return (r);
 }
@@ -44,13 +48,14 @@ int file_open (file_t **F, int mode, char *name) {
    -1 : *F not allocated
  */
 
-int file_close (file_t **F) {
+int file_close(file_t ** F) {
   int r = 0;
 
   if (*F) {
-    free ((*F)->name);
-    free (*F);
-  } else r = -1;
+    free((*F)->name);
+    free(*F);
+  } else
+    r = -1;
 
   return (r);
 }
