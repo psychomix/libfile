@@ -24,17 +24,17 @@ int file_open(file_t ** F, int mode, char *name) {
       (*F)->name = strdup(name);
       in = fopen(name, "rb");
       if (in) {
-	fseek(in, 0, SEEK_END);
-	(*F)->size = ftell(in);
-	rewind(in);
-	(*F)->buffer = (uchar *) malloc((*F)->size);
-	if ((*F)->buffer) {
-	  fread((*F)->buffer, (*F)->size, 1, in);
-	} else
-	  r = -4;
-	fclose(in);
+        fseek(in, 0, SEEK_END);
+        (*F)->size = ftell(in);
+        rewind(in);
+        (*F)->buffer = (uchar *) malloc((*F)->size);
+        if ((*F)->buffer) {
+          fread((*F)->buffer, (*F)->size, 1, in);
+        } else
+          r = -4;
+        fclose(in);
       } else
-	r = -3;
+        r = -3;
     } else
       r = -2;
   } else
