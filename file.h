@@ -7,7 +7,7 @@
 
 typedef struct {
   char *name;
-  char *buffer;
+  uchar *buffer;
   ulong size;
 } file_t;
 
