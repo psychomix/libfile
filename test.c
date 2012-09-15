@@ -9,6 +9,7 @@ int main() {
     printf("filename : '%s'\n", F->name);
     printf("filesize : %ld\n", F->size);
     file_close(&F);
+    file_copy ("test.c", "test.cc");
   }
 
   return 0;
