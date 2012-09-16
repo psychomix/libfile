@@ -78,7 +78,6 @@ int file_copy (char *src, char *dst) {
 
   in = fopen (src, "rb");
   if (in) {
-    fprintf (stderr, "%s -> %s\n", src, dst);
     stat (src, &sb);
     buffer = (uchar *)malloc (b_size);
     if (buffer) {
